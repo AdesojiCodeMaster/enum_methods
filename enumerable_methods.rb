@@ -24,14 +24,18 @@ module Enumerable
     self.my_each {|num| new_array << num if yield(num)} # iteration
     new_array
   end
-  def my_all
-    result = false
+  def my_all?
+    result = true
     i = 0
     self.my_each{
-      if (block_given? && yield(self[i]))
-        result = true
-      elsif self[i]
-        result = true
+      p self[i]
+
+      if block_given? && yield(self[i])==true
+        p 'case1'
+        result=false
+      elsif self[i]=false || self[i]=nil
+        p 'case2'
+        result=false
       end
       i += 1
     }
@@ -71,8 +75,8 @@ end
 [1, 2, 3].my_each { |num| puts num }
 [1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
 p [1, 2, 3].my_select { |num| num.even?}
-[1, 2, 3].my_all { |num| num.even? }
-[1, 2, 3].my_all {}
+[1, 2, 3].my_all? { |num| num.even? }
+[1, 2, 3].my_all? {}
 [1, 2, 3].my_any { |num| num.even? }
 [2, 4, 6].my_any { |num| num%3==0 }
 [1, 2, 3].my_any {}
