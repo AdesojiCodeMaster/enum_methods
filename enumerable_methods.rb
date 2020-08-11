@@ -45,8 +45,6 @@ module Enumerable
     result = false
     i = 0
     self.my_each{
-      p result
-      p self[i]
       result = true if (block_given? && yield(self[i]))
       result = true if self[i]
       i += 1
