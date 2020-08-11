@@ -29,26 +29,38 @@ module Enumerable
     return new_array
   end
   def my_all
-    result = true
+    result = false
     i = 0
     self.my_each{
-      if (block_given? && !yield(self[i]))
-        result = false
-      elsif !self[i]
-        result = false
+      if (block_given? && yield(self[i]))
+        result = true
+      elsif self[i]
+        result = true
       end
       i += 1
     }
     return result
   end
+  def my_any
+    result = false
+    i = 0
+    self.my_each{
+      p result
+      p self[i]
+      result = true if (block_given? && yield(self[i]))
+      result = true if self[i]
+      i += 1
+    }
+    return result
+  end  
 end
   
-   [1, 2, 3].my_each { |num| puts num }
-
-   [1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
-
-   [1, 2, 3].my_select { |num| num.is_even? }
-
-   [1, 2, 3].my_all { |num| num.is_even? }
-
-   [1, 2, 3].my_all {}
+[1, 2, 3].my_each { |num| puts num }
+[1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
+[1, 2, 3].my_select { |num| num.is_even? }
+[1, 2, 3].my_all { |num| num.is_even? }
+[1, 2, 3].my_all {}
+[1, 2, 3].my_any { |num| num.even? }
+[2, 4, 6].my_any { |num| num%3==0 }
+[1, 2, 3].my_any {}
+[false, false, nil].my_any {}
