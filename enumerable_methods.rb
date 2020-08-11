@@ -73,7 +73,16 @@ module Enumerable
       i += 1
     }
     return result
-  end  
+  end
+  def my_count
+    return self.to_enum unless block_given?
+    i = 0
+    result = 0
+    self.my_each{
+      result += 1 if yield(self[i])
+      i += 1
+    }
+  end
 end
 
 [1, 2, 3].my_each { |num| puts num }
@@ -94,3 +103,5 @@ p ary = [1, 2, 4, 2]
 p ary.count
 p ary.count(2)
 p ary.count{ |x| x%2==0 }
+p (1..4).map { |i| i*i }
+p (1..4).collect { "cat" }
