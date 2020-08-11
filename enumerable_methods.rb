@@ -50,6 +50,16 @@ module Enumerable
       i += 1
     }
     return result
+  end
+  def my_none
+    result = true
+    i = 0
+    self.my_each{
+      result = false if (block_given? && yield(self[i]))
+      result = false if self[i]
+      i += 1
+    }
+    return result
   end  
 end
   
@@ -62,3 +72,8 @@ end
 [2, 4, 6].my_any { |num| num%3==0 }
 [1, 2, 3].my_any {}
 [false, false, nil].my_any {}
+[1, 3.14, 42].none?(Float)
+[].none?
+[nil].none?
+[nil, false].none?
+[nil, false, true].none?
