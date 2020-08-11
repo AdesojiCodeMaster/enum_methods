@@ -65,23 +65,10 @@ module Enumerable
     result = 0
     i = 0
     self.my_each{
-      if block_given? && yield(self[i])
-        result += 1
-      elsif self[i]
-        result += 1
-      end
+      result += 1 if (block_given? && yield(self[i])) || self[i]
       i += 1
     }
     return result
-  end
-  def my_count
-    return self.to_enum unless block_given?
-    i = 0
-    result = 0
-    self.my_each{
-      result += 1 if yield(self[i])
-      i += 1
-    }
   end
 end
 
