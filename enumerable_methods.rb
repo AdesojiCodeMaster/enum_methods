@@ -1,7 +1,6 @@
 module Enumerable
   
-    # print out individual element
-  def my_each
+  def my_each # print out individual element
       return self.dup unless block_given? #to prevent block from throwing errors
       i = 0
       while i <= self.length - 1 #while loop
@@ -9,9 +8,8 @@ module Enumerable
         i += 1
       end
   end
-
-  # print out individual element with corresponding index
-  def  my_each_with_index
+ 
+  def  my_each_with_index # print out individual element with corresponding index
     return self.dup unless block_given? #to prevent block from throwing errors
     i = 0
     while i <= self.length - 1 #while loop
@@ -26,6 +24,7 @@ module Enumerable
     self.my_each {|num| new_array << num if yield(num)} # iteration
     new_array
   end
+
   def my_all?(*input) # give out true all elements met the conditions
     result = true # to standadise
     if input[0] != nil
@@ -49,12 +48,12 @@ module Enumerable
      elsif
       self.my_each {|n| result = true if yield(n)}
       else
-        self.my_each {|k,v| result = true if yield(k,v)}
+      self.my_each {|k,v| result = true if yield(k,v)}
     end
     result
   end
   
-  def my_none?(input = nil)
+  def my_none?(input = nil) # give true or false in respect to the supplied condition
     return true if count.zero? || (self[0].nil? && !include?(true))
     return false unless block_given? || !input.nil?
     output = true
@@ -80,9 +79,9 @@ module Enumerable
     output
   end
   
-  def my_count(ele = nil)
+  def my_count(ele = nil)  #print out the number of elements
     counter = 0 
-    if block_given?
+    if block_given? #to prevent block from throwing errors
       self.my_each {|n| counter += 1 if yield(n)}
       elsif ele
       self.my_each {|n| counter += 1 if n == ele}
@@ -91,6 +90,31 @@ module Enumerable
     end
     counter
   end
+  
+  def my_map  #print new array according to the condition
+    return self.dup unless block_given? #to prevent block from throwing errors
+    map_arr = []
+    if self == Array
+      self.my_each { |n| map_arr << yield(n)}
+      else
+      self.my_each {|k, v| map_arr << yield(k, v) }
+    end
+  end
+end
+
+def my_inject(*input)
+  return self.dup unless block_given? #to prevent block from throwing errors
+  argument = input + self
+  return nil if argument.length == 0
+  return argument[0] if argument.length == 1
+  output = argument[0]
+  argument[1..argument.length - 1].my_each {|num| output = yield(output, num)}
+  return output
+end
+
+def multiply_els
+
+
 end
 
 [1, 2, 3].my_each { |num| puts num }
@@ -112,6 +136,7 @@ p ary.count
 p ary.count(2)
 p ary.count{ |x| x%2==0 }
 p (1..4).map { |i| i*i }
-p (1..4).collect { "cat" }
+p (1..3).inject { |sum, n| sum + n}
+
 
 
