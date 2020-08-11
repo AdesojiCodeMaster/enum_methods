@@ -74,8 +74,8 @@ end
 
 [1, 2, 3].my_each { |num| puts num }
 [1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
-[1, 2, 3].my_select { |num| num.is_even? }
-[1, 2, 3].my_all { |num| num.is_even? }
+[1, 2, 3].my_select { |num| num.even? }
+[1, 2, 3].my_all { |num| num.even? }
 [1, 2, 3].my_all {}
 [1, 2, 3].my_any { |num| num.even? }
 [2, 4, 6].my_any { |num| num%3==0 }
