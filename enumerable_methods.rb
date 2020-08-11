@@ -18,15 +18,11 @@ module Enumerable
       i += 1
     end
   end
-  def my_select
-    return self.dup unless block_given?
-    new_array=[]
-    i = 0
-    self.my_each { 
-      new_array << self[i] if yield(self[i]) 
-      i += 1
-    }
-    return new_array
+  def my_select # print out a new array according to the select condition
+    return self.dup unless block_given? #to prevent block from throwing errors
+    new_array = []
+    self.my_each {|num| new_array << num if yield(num)} # iteration
+    new_array
   end
   def my_all
     result = false
@@ -74,7 +70,7 @@ end
 
 [1, 2, 3].my_each { |num| puts num }
 [1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
-[1, 2, 3].my_select { |num| num.even? }
+p [1, 2, 3].my_select { |num| num.even?}
 [1, 2, 3].my_all { |num| num.even? }
 [1, 2, 3].my_all {}
 [1, 2, 3].my_any { |num| num.even? }
