@@ -41,7 +41,7 @@ module Enumerable
     }
     return result
   end
-  def my_any
+  def my_any?
     result = false
     i = 0
     self.my_each{
@@ -77,9 +77,9 @@ end
 p [1, 2, 3].my_select { |num| num.even?}
 [1, 2, 3].my_all? { |num| num.even? }
 [1, 2, 3].my_all? {}
-[1, 2, 3].my_any { |num| num.even? }
-[2, 4, 6].my_any { |num| num%3==0 }
-[1, 2, 3].my_any {}
+[1, 2, 3].my_any? { |num| num.even? }
+[2, 4, 6].my_any? { |num| num%3==0 }
+[1, 2, 3].my_any? {}
 [false, false, nil].my_any {}
 [1, 3.14, 42].none?(Float)
 [].none?
