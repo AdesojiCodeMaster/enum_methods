@@ -9,7 +9,7 @@ module Enumerable
         i += 1
       end
   end
-  # print out individual element with corresponding index  
+  # print out individual element with corresponding index
   def  my_each_with_index
     return self.dup unless block_given? #to prevent block from throwing errors
     i = 0
@@ -60,9 +60,22 @@ module Enumerable
       i += 1
     }
     return result
+  end
+  def my_count
+    result = 0
+    i = 0
+    self.my_each{
+      if block_given? && yield(self[i])
+        result += 1
+      elsif self[i]
+        result += 1
+      end
+      i += 1
+    }
+    return result
   end  
 end
-  
+
 [1, 2, 3].my_each { |num| puts num }
 [1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
 [1, 2, 3].my_select { |num| num.is_even? }
@@ -77,3 +90,7 @@ end
 [nil].none?
 [nil, false].none?
 [nil, false, true].none?
+p ary = [1, 2, 4, 2]
+p ary.count
+p ary.count(2)
+p ary.count{ |x| x%2==0 }
