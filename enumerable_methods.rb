@@ -18,6 +18,16 @@ module Enumerable
       i += 1
     end
   end
+  def my_select
+    return self.dup unless block_given?
+    new_array=[]
+    i = 0
+    self.my_each { 
+      new_array << self[i] if yield(self[i]) 
+      i += 1
+    }
+    return new_array
+  end  
 end
   
    [1,2,3].my_each {|num| puts num}
