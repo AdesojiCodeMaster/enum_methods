@@ -1,98 +1,99 @@
 module Enumerable
-  
-  def my_each # print out individual element
-      return self.dup unless block_given? #to prevent block from throwing errors
+  # print out individual element
+  def my_each 
+    return enum_for unless block_given? # to prevent block from throwing errors
       i = 0
-      while i <= self.length - 1 #while loop
+      while i <= length - 1 # while loop
         yield(self[i])
         i += 1
       end
   end
- 
-  def  my_each_with_index # print out individual element with corresponding index
-    return self.dup unless block_given? #to prevent block from throwing errors
+  # print out individual element with corresponding index
+  def my_each_with_index 
+    return enum_for unless block_given? # to prevent block from throwing errors
     i = 0
-    while i <= self.length - 1 #while loop
+    while i <= length - 1 # while loop
       yield(self[i], i)
       i += 1
     end
   end
-
-  def my_select # print out a new array according to the select condition
-    return self.dup unless block_given? #to prevent block from throwing errors
+  # print out a new array according to the select condition
+  def my_select 
+    return enum_for unless block_given? # to prevent block from throwing errors
     new_array = []
-    self.my_each {|num| new_array << num if yield(num)} # iteration
+    my_each { |num| new_array << num if yield(num) } # iteration
     new_array
   end
-
-  def my_all?(*input) # give out true all elements met the conditions
+  # give out true all elements met the conditions
+  def my_all?(*input) 
     result = true # to standadise
-    if input[0] != nil
-      self.my_each {|n| result = false unless input[0] == n}
-     elsif !block_given?
-      self.my_each {|n| result = false unless n}
-     elsif
-      self.my_each {|n| result = false unless yield(n)}
-      else
-      self.my_each{|k, v| result = false unless yield(k,v)}
+    if !input[0].nil? 
+      my_each { |n| result = false unless input[0] == n }
+    elsif !block_given?
+      my_each { |n| result = false unless n }
+    elsif
+      my_each { |n| result = false unless yield(n) }
+    else
+      my_each{ |k, v| result = false unless yield(k, v) }
     end
     result
   end
-
-  def my_any?(*input) # my_any? looks like opposite of my_all? return true if any of the elements obeys
+  # my_any? looks like opposite of my_all? return true if any of the elements obeys
+  def my_any?(*input) 
     result = false
-    if input[0] != nil
-      self.my_each {|n| result = true if input[0] == n}
-     elsif !block_given?
-      self.my_each {|n| result = true if n}
-     elsif
-      self.my_each {|n| result = true if yield(n)}
-      else
-      self.my_each {|k,v| result = true if yield(k,v)}
+    if !input[0].nil?
+      my_each { |n| result = true if input[0] == n }
+    elsif !block_given?
+      my_each { |n| result = true if n }
+    elsif
+      my_each { |n| result = true if yield(n) }
+    else
+      my_each { |k, v| result = true if yield(k, v) }
     end
     result
   end
-  
-  def my_none?(input = nil) # give true or false in respect to the supplied condition
-    return true if count.zero? || (self[0].nil? && !include?(true))
+  # give true or false in respect to the supplied condition
+  def my_none?(input = nil) 
+    return true if count.zero? || ( self[0].nil? && !include?(true) )
     return false unless block_given? || !input.nil?
+
     output = true
     if self.class == Array
-      self.my_each do |n|
-        if block_given?
-          output = false if yield(n)
+        my_each do |n|
+          if block_given?
+            output = false if yield(n)
           elsif input.class == Regexp
-          output = false if n.matche(input)
+            output = false if n.matche(input)
           elsif input.class <= Numeric
-          output = false if n == input
+            output = false if n == input
           elsif n.class <= input
-          output = false
+            output = false
           end
           break unless output
+          end
+          else
+            my_each do |k, v|
+              output = false if yield(k, v)
+              break unless output
+          end
         end
-        else
-        self.my_each do |k, v|
-          output = false if yield(k, v)
-          break unless output
-        end
-    end
     output
   end
-  
-  def my_count(ele = nil)  #print out the number of elements
-    counter = 0 
-    if block_given? #to prevent block from throwing errors
-      self.my_each {|n| counter += 1 if yield(n)}
-      elsif ele
-      self.my_each {|n| counter += 1 if n == ele}
-      else
+  # print out the number of elements
+  def my_count(ele = nil) 
+    counter = 0
+    if block_given? # to prevent block from throwing errors
+        my_each { |n| counter += 1 if yield(n) }
+    elsif ele
+        my_each { |n| counter += 1 if n == ele }
+    else
       counter = self.length
     end
     counter
   end
   
   def my_map  #print new array according to the condition
-    return self.dup unless block_given? #to prevent block from throwing errors
+    return enum_for unless block_given? #to prevent block from throwing errors
     map_arr = []
     if self == Array
       self.my_each { |n| map_arr << yield(n)}
@@ -102,7 +103,7 @@ module Enumerable
   end
 
   def my_inject(*input) # to sum-up
-    return self.dup unless block_given? #to prevent block from throwing errors
+    return enum_for unless block_given? #to prevent block from throwing errors
     argument = input + self
     return nil if argument.length == 0
     return argument[0] if argument.length == 1
@@ -117,7 +118,7 @@ def multiply_els(input) # for multiplication
 end
 
 def my_map(proc = nil) #Modify our #my_map
-  return self.dup unless block_given? #to prevent block from throwing errors
+  return enum_for unless block_given? #to prevent block from throwing errors
   new_array []
   if proc
   self.my_each {|n| new_array << pro.call(n) }
@@ -126,6 +127,7 @@ def my_map(proc = nil) #Modify our #my_map
   end
   new_array
 end
+
 
 [1, 2, 3].my_each { |num| puts num }
 [1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
@@ -150,5 +152,4 @@ p (1..3).inject { |sum, n| sum + n}
 p multiply_els([2,4,5])
 proc1 = proc{ |n| n**4 }
 p [1, 2, 3, 4].map{|num| proc1.call(num)}
-
 
