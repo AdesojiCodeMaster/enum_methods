@@ -24,6 +24,6 @@ module Enumerable
         break unless output
       end
     end
-  output
+    output
   end
 end
