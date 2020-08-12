@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Enumerable
   def my_map
     # print new array according to the condition

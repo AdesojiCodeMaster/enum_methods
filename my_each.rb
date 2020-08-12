@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Enumerable
   # print out individual element
   def my_each

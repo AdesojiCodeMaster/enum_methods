@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Enumerables
   def my_inject(*input)
     # to sum-up

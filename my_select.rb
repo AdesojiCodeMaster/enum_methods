@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Enumerable
   # print out a new array according to the select condition
   def my_select
