@@ -26,3 +26,4 @@ module Enumerable
   end
   output
 end
+end
