@@ -8,22 +8,22 @@ module Enumerable
     if self.class == Array
       my_each do |n|
         if block_given?
-            output = false if yield(n)
-          elsif input.class == Regexp
-            output = false if n.matche(input)
-          elsif input.class <= Numeric
-            output = false if n == input
-          elsif n.class <= input
-            output = false
+          output = false if yield(n)
+        elsif input.class == Regexp
+          output = false if n.matche(input)
+        elsif input.class <= Numeric
+          output = false if n == input
+        elsif n.class <= input
+          output = false
         end
         break unless output
       end
     else
       my_each do |k, v|
-      output = false if yield(k, v)
-      break unless output
+        output = false if yield(k, v)
+        break unless output
+      end
     end
-  end
   output
-end
+  end
 end
