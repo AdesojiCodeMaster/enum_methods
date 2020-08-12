@@ -129,27 +129,3 @@ def my_map(proc = nil) #Modify our #my_map
 end
 
 
-[1, 2, 3].my_each { |num| puts num }
-[1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
-p [1, 2, 3].my_select { |num| num.even?}
-p [1, 2, 3].my_all? { |num| num.even? }
-p [1, 2, 3].my_all? {}
-p [1, 2, 3].my_any? { |num| num.even? }
-p [2, 4, 6].my_any? { |num| num%3==0 }
-p [1, 2, 3].my_any? {}
-p [false, false, nil].my_any? {}
-p [1, 3.14, 42].my_none?(Float)
-p [].my_none?
-p [nil].my_none?
-p [nil, false].my_none?
-p [nil, false, true].my_none?
-ary = [1, 2, 4, 2]
-p ary.count
-p ary.count(2)
-p ary.count{ |x| x%2==0 }
-p (1..4).map { |i| i*i }
-p (1..3).inject { |sum, n| sum + n}
-p multiply_els([2,4,5])
-proc1 = proc{ |n| n**4 }
-p [1, 2, 3, 4].map{|num| proc1.call(num)}
-
