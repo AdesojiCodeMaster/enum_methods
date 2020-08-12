@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Enumerable
   # print out individual element with corresponding index
   def my_each_with_index
