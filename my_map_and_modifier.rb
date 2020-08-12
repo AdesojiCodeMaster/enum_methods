@@ -11,6 +11,7 @@ module Enumerable
     end
   end
 end
+
 def my_map(proc = nil)
   # Modify our #my_map
   return enum_for unless block_given? # to prevent block from throwing errors
