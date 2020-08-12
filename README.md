@@ -4,7 +4,7 @@
 
 > In this project, we were required to build custom-enumerable methods.
 
-These are a list of enumerable methods to recreate;
+These are the list of enumerable methods to recreate;
 
 ### Enumerable Methods List:
 
