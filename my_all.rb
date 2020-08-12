@@ -14,3 +14,9 @@ module Enumerable
     result
   end
 end
+p %w[ant bear cat].all? { |word| word.length >= 3 }
+p %w[ant bear cat].all? { |word| word.length >= 4 }
+p %w[ant bear cat].all?(/t/) 
+p [1, 2i, 3.14].all?(Numeric)
+p [nil, true, 99].all?
+p [].all?

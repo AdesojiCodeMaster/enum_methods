@@ -10,4 +10,3 @@ module Enumerable
       end
     end
   end
-end
