@@ -136,7 +136,7 @@ p [1, 2, 3].my_any? { |num| num.even? }
 p [2, 4, 6].my_any? { |num| num%3==0 }
 p [1, 2, 3].my_any? {}
 p [false, false, nil].my_any? {}
-p [1, 14, 42].my_none?(Float)
+p [1, 3.14, 42].my_none?(Float)
 p [].my_none?
 p [nil].my_none?
 p [nil, false].my_none?
