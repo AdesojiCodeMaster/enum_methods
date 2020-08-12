@@ -116,6 +116,17 @@ def multiply_els(input)
   input.my_inject { |k, n| k * n}
 end
 
+def my_map(proc = nil) #Modify our #my_map
+  return self.dup unless block_given? #to prevent block from throwing errors
+  new_array []
+  if proc
+  self.my_each {|n| new_array << pro.call(n) }
+  else
+    self.each {|n| new_array << yield(n)}
+  end
+  new_array
+end
+
 [1, 2, 3].my_each { |num| puts num }
 [1, 2, 3].my_each_with_index { |num, idx| puts "num is #{num} at index #{idx}" }
 p [1, 2, 3].my_select { |num| num.even?}
