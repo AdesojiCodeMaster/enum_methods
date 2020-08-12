@@ -100,21 +100,20 @@ module Enumerable
       self.my_each {|k, v| map_arr << yield(k, v) }
     end
   end
+
+  def my_inject(*input)
+    return self.dup unless block_given? #to prevent block from throwing errors
+    argument = input + self
+    return nil if argument.length == 0
+    return argument[0] if argument.length == 1
+    output = argument[0]
+    argument[1..argument.length - 1].my_each {|num| output = yield(output, num)}
+    return output
+  end
 end
 
-def my_inject(*input)
-  return self.dup unless block_given? #to prevent block from throwing errors
-  argument = input + self
-  return nil if argument.length == 0
-  return argument[0] if argument.length == 1
-  output = argument[0]
-  argument[1..argument.length - 1].my_each {|num| output = yield(output, num)}
-  return output
-end
-
-def multiply_els
-
-
+def multiply_els(input)
+  input.my_inject { |k, n| k * n}
 end
 
 [1, 2, 3].my_each { |num| puts num }
@@ -137,6 +136,7 @@ p ary.count(2)
 p ary.count{ |x| x%2==0 }
 p (1..4).map { |i| i*i }
 p (1..3).inject { |sum, n| sum + n}
+p multiply_els([2,4,5])
 
 
 
