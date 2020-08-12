@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Enumerable
   # my_any? looks like opposite of my_all? return true if any of the elements obeys
   def my_any?(*input)

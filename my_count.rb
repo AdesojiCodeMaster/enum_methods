@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Enumerable
   # print out the number of elements
   def my_count(ele = nil)
