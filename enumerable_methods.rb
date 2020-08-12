@@ -101,7 +101,7 @@ module Enumerable
     end
   end
 
-  def my_inject(*input)
+  def my_inject(*input) # to sum-up
     return self.dup unless block_given? #to prevent block from throwing errors
     argument = input + self
     return nil if argument.length == 0
@@ -112,7 +112,7 @@ module Enumerable
   end
 end
 
-def multiply_els(input)
+def multiply_els(input) # for multiplication
   input.my_inject { |k, n| k * n}
 end
 
@@ -148,6 +148,7 @@ p ary.count{ |x| x%2==0 }
 p (1..4).map { |i| i*i }
 p (1..3).inject { |sum, n| sum + n}
 p multiply_els([2,4,5])
-
+proc1 = proc{ |n| n**4 }
+p [1, 2, 3, 4].map{|num| proc1.call(num)}
 
 
