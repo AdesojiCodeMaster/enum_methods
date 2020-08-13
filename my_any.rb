@@ -3,7 +3,7 @@ module Enumerable
   def my_any?(input = nil)
     result = false # to standardise
     if input.is_a?(Regexp)
-      my_each { |n| return true if !n[input].nil? || n[input] == 1 }
+      my_each { |n| return true if n[input] == 1 }
     elsif !block_given?
       my_each { |n| result = true if n }
     else
