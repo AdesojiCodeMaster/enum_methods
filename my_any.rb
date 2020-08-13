@@ -1,6 +1,5 @@
 module Enumerable
   # my_any? looks like opposite of my_all? return true if any of the elements obeys
-<<<<<<< HEAD
   def my_any?(input = nil)
     result = false # to standardise
     if length == 1
@@ -15,16 +14,6 @@ module Enumerable
       my_each { |n| return true if n.is_a?(input) }
     elsif block_given?
       my_each { |n| return true if yield n }
-=======
-  def my_any?(*input)
-    result = false
-    if !input[0].nil?
-      my_each { |n| result = true if input[0] = n }
-    elsif !block_given?
-      my_each { |n| result = true if n }
-    else
-      my_each { |n| result = true if yield(n) }
->>>>>>> 625c05904a43e79ed92b5a7db92e021be83f221b
     end
     result
   end
