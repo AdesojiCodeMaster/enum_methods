@@ -7,7 +7,7 @@ module Enumerable
     elsif !block_given?
       my_each { |n| result = true if n }
     else
-      my_each { |n| result = true if yield(n) } 
+      my_each { |n| result = true if yield(n) }
     end
     result
   end
