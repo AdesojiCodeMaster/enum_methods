@@ -3,11 +3,11 @@ module Enumerable
   def my_any?(*input)
     result = false
     if !input[0].nil?
-      my_each { |n| result = true if input[0] === n }
+      my_each { |n| result = true if input[0] = n }
     elsif !block_given?
       my_each { |n| result = true if n }
     else
-      my_each { |n| result = true if yield(n) } 
+      my_each { |n| result = true if yield(n) }
     end
     result
   end
