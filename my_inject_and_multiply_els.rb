@@ -11,7 +11,7 @@ module Enumerables
     end
 
     if base
-      array.my_each { |n| output = output ? output.send(base,n) : n }
+      array.my_each { |n| output = output ? output.send(base, n) : n }
     else
       array.my_each { |n| output = output ? yield(output, n) : n }
     end
