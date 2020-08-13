@@ -3,3 +3,4 @@ module Enumerable
   def my_none?(input = nil)
     !my_any?(input)
   end
+end
