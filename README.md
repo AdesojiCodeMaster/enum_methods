@@ -1,8 +1,7 @@
 # enum_methods
 # PROJECT TITLE: ENUMERABLE METHODS
 
-
-> In this project, we were required to build custom-enumerable methods.
+> Building custom-enumerable methods.
 
 These are the list of enumerable methods to recreate;
 
