@@ -9,6 +9,7 @@ module Enumerable
     else
       my_each { |k, v| map_arr << yield(k, v) }
     end
+    map_arr
   end
 end
 
@@ -16,7 +17,7 @@ def my_map(proc = nil)
   # Modify our #my_map
   return enum_for unless block_given? # to prevent block from throwing errors
 
-  new_array []
+  new_array = []
   if proc
     my_each { |n| new_array << pro.call(n) }
   else
