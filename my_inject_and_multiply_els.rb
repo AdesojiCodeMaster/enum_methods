@@ -3,16 +3,13 @@ module Enumerables
     # to sum-up
     return enum_for unless block_given? # to prevent block from throwing errors
     
-    input = input.to_a
+    input = input.to_a  
     argument = input + self
     return nil if argument.length.zero?
     return argument[0] if argument.length == 1
 
-    if base
-      array.my_each { |n| output = output ? output.send(base, n) : n }
-    else
-      array.my_each { |n| output = output ? yield(output, n) : n }
-    end
+    output = argument[0]
+    argument[1..argument.length - 1].my_each { |num| output = yield(output, num) }
     output
   end
 end
