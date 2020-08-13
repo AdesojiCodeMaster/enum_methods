@@ -20,8 +20,9 @@ module Enumerable
       end
     else
       my_each do |k, v|
-      output = false if yield(k, v)
-      break unless output
+        output = false if yield(k, v)
+        break unless output
+      end
     end
   end
   output
