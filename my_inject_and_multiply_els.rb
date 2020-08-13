@@ -4,7 +4,7 @@ module Enumerables
     return enum_for unless block_given? # to prevent block from throwing errors
 
     argument = input + self
-    return nil if argument.empty?
+    return nil if argument.length.zero?
     return argument[0] if argument.length == 1
 
     output = argument[0]
