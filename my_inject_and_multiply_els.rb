@@ -1,20 +1,14 @@
 module Enumerables
   def my_inject(*input)
     # to sum-up
-    array = is_a?(Array) ? self : to_a
-    output = input[0] if input[0].is_a? Integer
+    return enum_for unless block_given? # to prevent block from throwing errors
 
-    if input[0].is_a?(Symbol) || input[0].is_a?(String)
-      base = arg[0]
-    elsif input[0].is_a?(Integer)
-      base = arg[1] if input[1].is_a?(Symbol) || input[1].is_a?(String)
-    end
+    argument = input + self
+    return nil if argument.length.zero?
+    return argument[0] if argument.length == 1
 
-    if base
-      array.my_each { |n| output = output ? output.send(base,n) : n }
-    else
-      array.my_each { |n| output = output ? yield(output, n) : n }
-    end
+    output = argument[0]
+    argument[1..argument.length - 1].my_each { |num| output = yield(output, num) }
     output
   end
 end

@@ -4,4 +4,3 @@ module Enumerable
     !my_any?(input, &block)
   end
 end
-
