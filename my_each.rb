@@ -12,12 +12,12 @@ module Enumerable
 end
 
 # test examples;
-puts 'my_each method with array'
-ary = [1, 2, 4, 2]
-ary.my_each { |x| p x } #=> 1 2 4 2
-puts 'my_each method with range'
-ary = (1..5)
-ary.my_each { |x| p x } #=> 1 2 3 4 5
-puts 'my_each method with hash'
-ary = { full: 20, fill: 15 }
-ary.my_each { |x| p x } #=> [:full, 20] [:fill, 15]
+# puts 'my_each method with array'
+# ary = [1, 2, 4, 2]
+# ary.my_each { |x| p x } #=> 1 2 4 2
+# puts 'my_each method with range'
+# ary = (1..5)
+# ary.my_each { |x| p x } #=> 1 2 3 4 5
+# puts 'my_each method with hash'
+# ary = { full: 20, fill: 15 }
+# ary.my_each { |x| p x } #=> [:full, 20] [:fill, 15]
