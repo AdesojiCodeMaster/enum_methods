@@ -14,4 +14,4 @@ module Enumerable
   end
 end
 puts 'my_map method using Ruby doc test examples'
-(p) (1..4).my_map (nil) { |i| i * i } #=> [1, 4, 9, 16]
+(1..4).my_map { |i| puts i * i } #=> [1, 4, 9, 16]
