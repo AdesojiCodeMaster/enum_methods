@@ -1,3 +1,4 @@
+require_relative 'my_each.rb'
 module Enumerable
   # print out a new array according to the select condition
   def my_select
@@ -8,3 +9,5 @@ module Enumerable
     new_array
   end
 end
+puts 'my_select method using Ruby doc test example'
+p [1, 2, 3, 4, 5].select(&:even?)  #=> [2, 4]

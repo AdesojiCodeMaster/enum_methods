@@ -11,7 +11,7 @@ module Enumerable
   end
 end
 
-# test examples;
+# puts 'my_each method using Ruby doc test examples';
 # puts 'my_each method with array'
 # ary = [1, 2, 4, 2]
 # ary.my_each { |x| p x } #=> 1 2 4 2
