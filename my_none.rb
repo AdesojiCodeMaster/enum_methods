@@ -5,7 +5,7 @@ module Enumerable
     !my_any?(input, &block)
   end
 end
-# please comment out test examples in my_any.rb before running my_none.rb to prevent interference!
+# please comment out test examples in my_any.rb before running this file to prevent interference!
 puts 'my_none? method using Ruby doc test examples'
 p %w[ant bear cat].my_none?(nil) { |word| word.length == 5 } #=> true
 p %w[ant bear cat].my_none?(nil) { |word| word.length >= 4 } #=> false

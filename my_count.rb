@@ -1,3 +1,4 @@
+require_relative 'my_each.rb'
 module Enumerable
   # print out the number of elements
   def my_count(ele = nil)
@@ -12,3 +13,9 @@ module Enumerable
     counter
   end
 end
+
+puts 'my_count method using Ruby doc test examples'
+ary = [1, 2, 4, 2]
+p ary.my_count #=> 4
+p ary.my_count(2) #=> 2
+p ary.my_count(&:even?) #=> 3
