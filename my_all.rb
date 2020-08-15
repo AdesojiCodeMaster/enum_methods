@@ -1,16 +1,16 @@
 require_relative 'my_each.rb'
 module Enumerable
-  # return true when all elements meet the conditions
-  def my_all?(input = nil)
-    result = true # to standardise
-    if input.is_a?(Regexp)
-      my_each { |n| return false unless n[input] == 1 }
+  # give out true when all elements obey the conditions
+  def my_all?(*input)
+    output = true
+    if !input[0].nil?
+      my_each { |n| output = false unless input[0] === n } # rubocop:disable Style/CaseEquality
     elsif !block_given?
-      my_each { |n| result = false unless n }
+      my_each { |n| output = false unless n }
     else
-      my_each { |n| result = false unless yield(n) }
+      my_each { |n| output = false unless yield(n) }
     end
-    result
+    output
   end
 end
 
