@@ -25,8 +25,8 @@ These are the list of enumerable methods to recreate;
 
 
 ## Project Screenshot
-[Screenshot](!enum_methods1.png)
-[Screenshot](!enum_methods2.png)
+[Screenshot](./assets/img/enum_methods1.png)
+[Screenshot](./assets/img/enum_methods2.png)
 
 
 ## Prequisities
