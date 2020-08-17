@@ -77,7 +77,7 @@ module Enumerable
     new_array
   end
 
-  def my_inject(input1 = nil, input2 = nil) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+  def my_inject(input1 = nil, input2 = nil) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     raise TypeError, "#{input1} is not a symbol nor a string" if input1.is_a?(Integer) && input2.nil? && !block_given?
 
     raise LocalJumpError, 'No block Given or Empty Argument' if input1.nil? && input2.nil? && !block_given?
