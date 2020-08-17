@@ -21,9 +21,26 @@ These are the list of enumerable methods to recreate;
 ## Built With
 
 - Ruby
+- Rubocop
 
-## Live Code
-[live-demo](https://repl.it/repls/HightechPerfumedFormula#main.rb)
+
+## Project Screenshot
+[Screenshot](./enum_methods1.png)
+[Screenshot](./enum_methods2.png)
+
+
+## Prequisities
+
+- Ruby must be installed on local machine
+- Basic CLI knowledge
+
+## Set-up
+
+- Clone/download the repo to your local machine
+- On your CLI run enumerable_methods.rb
+- Similarly, code can be copied and pasted to https://repl.it platform with Ruby as the language
+
+
 
 
 ## Authors
