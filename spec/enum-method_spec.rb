@@ -51,4 +51,22 @@ describe  Enumerable do
             expect(nil_array.my_all?).to eq(false)
         end
     end
+    # test for my_any?
+    context '#my_any?' do
+       it 'returns false if no block or parameter is given' do
+           expect(text_array.my_any?).to eq(true)
+      end
+      it 'returns true if a parameter is given and at least one of the elements meets the condition' do
+          expect(arr2.my_any?(1)).to eq(true)
+    end
+    it 'returns false when a block is given and non of the elements meets the condition' do
+        expect(arr2.my_any?{|n| n > 5}).to eq(false)
+    end
+    it 'returns false when no block is given and all the elements are false or nil' do
+        expect(nil_array.my_any?).to eq(false)
+    end
+    end
 end
+
+
+    
