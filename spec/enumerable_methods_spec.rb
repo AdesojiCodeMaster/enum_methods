@@ -7,17 +7,17 @@ describe Enumerable do
   let(:text_array) { %w[ant bear cat] }
   let(:nil_array) { [false, nil] }
   # test for my_each
-  context "#my_each" do
-    it "returns enumerator if block not given" do
+  context '#my_each' do
+    it 'returns enumerator if block not given' do
       expect(array.my_each).to be_an(Enumerable)
     end
-    it "returns elements in the array if block given" do
-      expect(array.my_each { |n| puts n }).to eq(array.each { |n| n })
+    it 'returns elements in the array if block given' do
+      expect(array.my_each { |n| puts n }).to eq(array.each { |n| puts n })
     end
   end
   # test for my_each_with_index
-  context "#my_each_with_index" do
-    it "returns enumerator if block not given" do
+  context '#my_each_with_index' do
+    it 'returns enumerator if block not given' do
       expect(array.my_each_with_index).to be_an(Enumerable)
     end
     it "returns elements and corresponding index in the array if block given" do
@@ -26,7 +26,7 @@ describe Enumerable do
   end
   # test for my_select
   context '#my_select' do
-    it "returns enumerator if block not given" do
+    it 'returns enumerator if block not given' do
       expect(array.my_each_with_index).to be_an(Enumerable)
     end
     it 'returns elements that match with a condition' do
@@ -35,10 +35,10 @@ describe Enumerable do
   end
   # test for my_all?
   context '#my_all?' do
-    it "returns false if block not given and argument it's diferent of all items on the array" do
+    it 'returns false if block not given and argument it is diferent of all items on the array' do
       expect(arr2.my_all?(1)).to eq(false)
     end
-    it "returns true if block not given and argument it's equal to all items on the array" do
+    it 'returns true if block not given and argument it is equal to all items on the array' do
       expect(arr.my_all?(1)).to eq(true)
     end
     it 'returns false if block is given and condition is not met by all elemnts' do
@@ -47,7 +47,7 @@ describe Enumerable do
     it 'returns true if block is given and condition is met by all elemnts' do
       expect(text_array.my_all? { |word| word.length <= 4 }).to eq(true)
     end
-    it "returns false if block is not given and no parameter and the items from the array are all false or nil" do
+    it 'returns false if block is not given and no parameter and the items from the array are all false or nil' do
       expect(nil_array.my_all?).to eq(false)
     end
   end
