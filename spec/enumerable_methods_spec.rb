@@ -21,7 +21,7 @@ describe Enumerable do
       expect(array.my_each_with_index).to be_an(Enumerable)
     end
     it 'returns elements and corresponding index in the array if block given' do
-      expect(array.my_each_with_index { |n, i| puts "#{n} => #{i}" }).to eq(array.each_with_index { |n, i| "#{n}, #{i}" })
+      expect(array.my_each_with_index { |n, i| puts "#{n} => #{i}" }).to eq(array.each_with_index { |n, i| "#{n}, #{i}" }) # rubocop:disable Layout/LineLength
     end
   end
   # test for my_select
