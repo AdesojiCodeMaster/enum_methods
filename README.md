@@ -1,11 +1,11 @@
 # enum_methods
-# PROJECT TITLE: ENUMERABLE METHODS
+# 🧐 PROJECT TITLE: ENUMERABLE METHODS
 
 > Building custom-enumerable methods.
 
 These are the list of enumerable methods to recreate;
 
-### Enumerable Methods List:
+### 📝 Enumerable Methods List:
 
 - my_each
 - my_each_with_index
@@ -18,7 +18,7 @@ These are the list of enumerable methods to recreate;
 - my_inject
 - multiply_els
 
-## Built With
+## 🛠 Built With
 
 - Ruby
 - Rubocop
@@ -34,16 +34,14 @@ These are the list of enumerable methods to recreate;
 - Ruby must be installed on local machine
 - Basic CLI knowledge
 
-## Set-up
+## 🔧 Set-up
 
 - Clone/download the repo to your local machine
 - On your CLI run enumerable_methods.rb
 - Similarly, code can be copied and pasted to https://repl.it platform with Ruby as the language
 
 
-
-
-## Authors
+## 👤 Authors
 
 
 👤 Luciano Sarno
@@ -57,6 +55,12 @@ These are the list of enumerable methods to recreate;
 - Github: [@AdesojiCodeMaster](https://github.com/AdesojiCodeMaster)
 - Linkedin: [@adesoji-adewumi-7752aba5/](https://www.linkedin.com/in/adesoji-adewumi-7752aba5/)
 - Twitter: [@codemas22665735](https://twitter.com/codemas22665735)
+
+👤 **Giordano Díaz**
+
+- Github: [@diazgio](https://github.com/diazgio)
+- Twitter: [@giordano_diaz](https://twitter.com/giordano_diaz)
+- LinkenIn:[LinkenIn](www.linkedin.com/in/Giordano-Diaz)
 
 
 ## 🤝 Contributing
