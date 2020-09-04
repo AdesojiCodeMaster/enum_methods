@@ -20,7 +20,7 @@ describe Enumerable do
     it 'returns enumerator if block not given' do
       expect(array.my_each_with_index).to be_an(Enumerable)
     end
-    it "returns elements and corresponding index in the array if block given" do
+    it 'returns elements and corresponding index in the array if block given' do
       expect(array.my_each_with_index { |n, i| puts "#{n} => #{i}" }).to eq(array.each_with_index { |n, i| "#{n}, #{i}" })
     end
   end
